@@ -16,13 +16,11 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from gimpfu import *
-from os.path import splitext, basename
 
 gettext.install("gimp20-python", gimp.locale_directory, unicode=True)
 
 def anitextify(i, l, direction=(0, 1), delay=30):
     out = gimp.Image(i.width, i.height, 0)
-    out.filename = "{}.gif".format(splitext(basename(i.filename))[0])
     layer = gimp.pdb.gimp_layer_new_from_visible(i, out, "Base") # TODO: Use python bindings
     l = layer
 
